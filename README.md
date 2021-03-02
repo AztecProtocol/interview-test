@@ -2,6 +2,8 @@
 
 **WARNING: Do not fork this repository or make a public repository containing your solution. Either copy it to a private repository or submit your solution via other means.**
 
+Links to solutions in a new repo may be sent to hello@aztecprotocol.com.
+
 Welcome, candidate. You have been selected to partake in the Aztec technical challenge. This source code repository contains the remains of a fully functional merkle tree hash path server. Select portions of the codebase have been removed, and it is your job to re-code the system to working operation.
 
 The test provides you an opportunity to demonstrate the following:
