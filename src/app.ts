@@ -6,6 +6,10 @@ import Router from 'koa-router';
 import { GetHashPathServerResponse, GetTreeStateServerResponse } from './hash_path_source';
 import { Server } from './server';
 
+/**
+ * Creates and returns a Koa app that will serve hash tree state.
+ * Nothing to modify here.
+ */
 export function appFactory(server: Server, prefix: string) {
   const router = new Router({ prefix });
 

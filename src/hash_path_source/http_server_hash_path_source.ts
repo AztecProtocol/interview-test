@@ -12,6 +12,9 @@ export interface GetTreeStateServerResponse {
   size: number;
 }
 
+/**
+ * Implementation of HashPathSource that will use a backend server to fetch and return data.
+ */
 export class HttpServerHashPathSource implements HashPathSource {
   private baseUrl: string;
 

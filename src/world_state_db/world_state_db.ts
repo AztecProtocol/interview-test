@@ -1,5 +1,8 @@
 import { HashPath } from '../merkle_tree';
 
+/**
+ * Provides an abstraction for whatever underlying implementation is saving the tree state.
+ */
 export interface WorldStateDb {
   getRoot(): Buffer;
   getSize(): number;

@@ -4,6 +4,7 @@ import { HashPath } from './merkle_tree';
 import { BlockSource } from './block_source';
 import { HashPathSource, TreeState } from './hash_path_source';
 import { WorldStateDb } from './world_state_db';
+import { ServerState, ServerStateDb } from './server_state';
 
 export class Server implements HashPathSource {
   public constructor(private worldStateDb: WorldStateDb, private blockSource: BlockSource) {}

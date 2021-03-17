@@ -3,6 +3,10 @@ import { WorldStateDb } from './world_state_db';
 import { Sha256Hasher } from '../merkle_tree/sha256_hasher';
 import { LevelUp } from 'levelup';
 
+/**
+ * A simple implementation of WorldStateDb that basically just wraps the MerkleTree.
+ * No modification to be made here.
+ */
 export class InternalWorldStateDb implements WorldStateDb {
   private tree!: MerkleTree;
 

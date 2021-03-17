@@ -2,7 +2,7 @@
 
 **WARNING: Do not fork this repository or make a public repository containing your solution. Either copy it to a private repository or submit your solution via other means.**
 
-Links to solutions in a new repo may be sent to hello@aztecprotocol.com.
+Links to solutions may be sent to hello@aztecprotocol.com.
 
 Welcome, candidate. You have been selected to partake in the Aztec technical challenge. This source code repository contains the remains of a fully functional merkle tree hash path server. Select portions of the codebase have been removed, and it is your job to re-code the system to working operation.
 
@@ -11,7 +11,6 @@ The test provides you an opportunity to demonstrate the following:
 - Your ability to write a data structure algorithm (in this case a merkle tree).
 - Your ability to write an http service of production quality, with all considerations that entails.
 - Your ability to write clean, idiomatic TypeScript.
-- **ADVANCED MODE** (you won't have time): Your ability to code the merkle tree in a systems level language such as Rust or C++ (preferred). Only to be attempted if you're confident with the above and want to go the extra mile.
 
 Please include with your submission, a section at the end of this document, detailing any theoretical optimisations that could be made to the algorithm to improve its performance.
 
@@ -107,6 +106,12 @@ export interface Hasher {
   hash(data: Buffer): Buffer;
 }
 ```
+
+## Time Considerations
+
+It's expected you put in at about a days effort. It's not expected for you to complete all of it, and we will continue working on your solution in the code pairing session. Emphasis is on good quality tested code.
+
+Prioritise the merkle tree implementation over the server implementation, but if there's anything you don't have time to implement, please add a section at the end of this document detailing any considerations you would make when implementing.
 
 ## Advanced Mode
 
