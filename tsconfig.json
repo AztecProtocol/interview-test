@@ -16,6 +16,5 @@
     "declarationMap": true,
     "types": ["node", "jest"]
   },
-  "include": ["src"],
-  "exclude": ["**/*.test.ts"]
+  "include": ["src"]
 }

@@ -28,7 +28,9 @@ export class MerkleTree {
   /**
    * Constructs a new MerkleTree instance with the given `name` and `depth`.
    */
-  static async new(db: LevelUp, hasher: Hasher, name: string, depth: number) {}
+  static async new(db: LevelUp, hasher: Hasher, name: string, depth: number) {
+    return new MerkleTree(db, hasher, name, depth)
+  }
 
   /**
    * Constructs a new MerkleTree instance from existing data identified by `name`.
