@@ -12,7 +12,7 @@ The test provides you an opportunity to demonstrate the following:
 - Your ability to write an http service of production quality, with all considerations that entails.
 - Your ability to write clean, idiomatic TypeScript.
 
-Please include with your submission, a section at the end of this document, detailing any theoretical optimisations that could be made to the algorithm to improve its performance.
+Please include with your submission, a section at the end of this document or within code, detailing any theoretical optimisations that could be made to the algorithm to improve its performance, considering that at scale this system would have to deal with blocks containing many thousands of entries.
 
 ## Rationale
 
@@ -107,12 +107,40 @@ export interface Hasher {
 }
 ```
 
+## Building and Running
+
+After cloning the repo:
+
+```bash
+yarn install
+
+# To run all tests.
+yarn test
+
+# To run just merkle tree tests, watching for changes.
+yarn test ./src/merkle_tree/merkle_tree.test.ts --watch
+
+# To run just server tests, watching for changes.
+yarn test ./src/server.test.ts --watch
+
+# To run the server.
+yarn start
+```
+
 ## Time Considerations
 
-It's expected you put in at about a days effort. It's not expected for you to complete all of it, and we will continue working on your solution in the code pairing session. Emphasis is on good quality tested code.
+You can take two approaches to the test. In either approach we don't expect the algorithm to have been optimised for high data throughput, but include a description any optimisations you can think of, that could enable the system to scale to thousands of entries per block.
 
-Prioritise the merkle tree implementation over the server implementation, but if there's anything you don't have time to implement, please add a section at the end of this document detailing any considerations you would make when implementing.
+#### 1. Time Boxed
+
+We'll have agreed up front the amount of time you want to commit to the test (usually about a day). You don't have to complete all of it, and if we're happy with what we see in the time given, we will continue working on your solution in the code pairing session.
+
+Prioritise the merkle tree implementation over the server implementation, but what you don't implement should instead have a description of what you _would_ implement given more time.
+
+#### 2. Open Ended
+
+Take as long as you want, within reason. We expect a fully working server that you would be happy to deploy to production, assuming low data throughput.
 
 ## Advanced Mode
 
-If you found the above easy and want to go the extra mile, an implementation of a `WorldStateDb` has been provided (`ExternalWorldStateDb`) which will communicate with an external binary over stdin/stdout. This will allow you to demonstrate some skills around serializing data and systems level programming. `C++` is our primary systems level language today, so is preferred, but `Rust` will also be accepted.
+If you really want to go the extra mile, an implementation of a `WorldStateDb` has been provided (`ExternalWorldStateDb`) which will communicate with an external binary over stdin/stdout. This will allow you to demonstrate some skills around serializing data and systems level programming. `C++` is our primary systems level language today, so is preferred, but `Rust` will also be accepted.

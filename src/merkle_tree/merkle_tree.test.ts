@@ -10,7 +10,7 @@ describe('merkle_tree', () => {
   beforeAll(async () => {
     hasher = new Sha256Hasher();
 
-    for (let i = 0; i < 10; ++i) {
+    for (let i = 0; i < 1024; ++i) {
       const v = Buffer.alloc(64, 0);
       v.writeUInt32LE(i, 0);
       values[i] = v;
@@ -64,6 +64,24 @@ describe('merkle_tree', () => {
     expect(tree.getSize()).toBe(4);
 
     expect(root).toEqual(Buffer.from('e645e6b5445483a358c4d15c1923c616a0e6884906b05c196d341ece93b2de42', 'hex'));
+  });
+
+  it('should be able to restore from previous data', async () => {
+    const levelDown = memdown();
+    const db = levelup(levelDown);
+    const tree = await MerkleTree.new(db, hasher, 'test', 10);
+    for (let i = 0; i < 128; ++i) {
+      await tree.updateElement(i, values[i]);
+    }
+
+    const db2 = levelup(levelDown);
+    const tree2 = await MerkleTree.fromName(db2, hasher, 'test');
+
+    expect(tree.getRoot().toString('hex')).toBe('4b8404d05a963de56f7212fbf8123204b1eb77a4cb16ae3875679a898aaa5daa');
+    expect(tree.getRoot()).toEqual(tree2.getRoot());
+    for (let i = 0; i < 128; ++i) {
+      expect(await tree.getHashPath(i)).toEqual(await tree2.getHashPath(i));
+    }
   });
 
   // Write more tests.
